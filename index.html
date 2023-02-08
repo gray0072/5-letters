@@ -3,7 +3,7 @@
   <head>
     <!-- Page setup -->
     <meta charset="utf-8">
-    <title>5 букв</title>
+    <title>5 letters</title>
     <meta name="description" content="A brief description of your site for search engines">
     <meta name="author" content="Information about the author here">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
@@ -28,42 +28,24 @@
   <body>
 
     <header id="header">
-      <img src="logo.jpg">
-      <h1>Simple Website</h1>
-      
-      <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
-      <ul class="main-menu">
-        <li><a href="#home">home</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>                 
+      <h1>5 letters</h1>
+        
     </header>
    
     <div id="container">
       <div class="inner">
         <div id="content"> 
           
-          <div id="home" class="content-region hide">
-            <h2>Home</h2>
-            <p>
-              This is a simple website template published with Github Pages. <a href="https://github.com/cpl-makerlab/simple-website-template">Fork this repository</a> to create your own site!
-            </p>
+          <div id="home" class="content-region">
+            <h2>Type words like PA!NDA?</h2>
+            
+            <input id="word1"/>
+            <input id="word2"/>
+            <input id="word3"/>
+            <input id="word4"/>
+            <input id="word5"/>
+            <textarea id="result"></textarea>
           </div>
-          
-          <div id="about" class="content-region hide">
-            <h2>About</h2>
-            <p>
-              Sed tempus urna et pharetra pharetra massa massa ultricies. Porttitor rhoncus dolor purus non enim praesent. Id aliquet risus feugiat in ante metus dictum. 
-            </p>
-          </div>
-          
-          <div id="contact" class="content-region hide">
-            <h2>Contact</h2>
-            <p>
-              Pellentesque nec nam aliquam sem et tortor consequat. Quisque sagittis purus sit amet volutpat consequat. Magna eget est lorem ipsum dolor. 
-            </p>
-          </div>
-          
         </div>
       </div>
     </div>
@@ -72,7 +54,12 @@
       Footer region
     </footer>
     
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
     <!-- Load additional JS scripts here -->
+    <script type="text/javascript" src="script-words.js"></script>
     <script type="text/javascript" src="script.js"></script>
     
   </body>
