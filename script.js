@@ -1,8 +1,8 @@
 // Wait for the document to load before running the script 
 (function ($) {
   
-  let $inputs = [1,2,3,4,5].map(x => $(`word${x}`))
-  let $result = $('result')
+  let $inputs = [1,2,3,4,5].map(x => $(`#word${x}`))
+  let $result = $('#result')
 
   let updateResult = () => {
     console.log('updateResult')
