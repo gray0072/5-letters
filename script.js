@@ -5,10 +5,13 @@
   let $result = $('result')
 
   let updateResult = () => {
+    console.log('updateResult')
     try {
       let filterStrs = $inputs.map($input => $input.value()).filter(x => !!x)
+      console.log('filterStrs', filterStrs)
   
       let applyFilterStr = (filterStr, words) => {
+        console.log('applyFilterStr', filterStr)
         // ба!нан? 
         let rules = []
 
@@ -29,11 +32,16 @@
           }
 
           index++
-        }        
+        }   
+        
+        console.log('rules', rules)     
 
         let isFitToFilter = word => rules.every(rule => rule(word))
         
-        return words.filter(isFitToFilter)
+        let result = words.filter(isFitToFilter)
+        console.log('result', result)     
+
+        return result
       }
       let resultWords = filterStrs.reduce(applyFilterStr, words5Array)
       let resultStr = resultWords.slice(0, 20).join('\n')
