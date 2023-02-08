@@ -22,22 +22,27 @@
         
         let rules = []
 
+        let createRuleIncludes = letter => word => word.includes(letter)
+        let createRuleNotIncludes = letter => word => !word.includes(letter)
+        let createRuleExact = (letter, index) => word => word[index] === letter
+        let createRuleNotExact = (letter, index) => word => word[index] !== letter
+
         let index = 0
         let filter = filterStr.toLowerCase()
         while (filter){
           let letter = filter[0]
           let nextLetter = filter[1]
-          if(nextLetter === '!')          {
-            rules.push(word => word[index] === letter)
+          if(nextLetter === '!') {
+            rules.push(createRuleExact(letter, index))
             filter = filter.substring(2)
           }
-          else if(nextLetter === '?')          {
-            rules.push(word => word[index] !== letter)
-            rules.push(word => word.includes(letter))
+          else if(nextLetter === '?') {
+            rules.push(createRuleNotExact(letter, index))
+            rules.push(createRuleIncludes(letter))
             filter = filter.substring(2)
           }
           else {
-            rules.push(word => !word.includes(letter))
+            rules.push(createRuleNotIncludes(letter))
             filter = filter.substring(1)
           }
 
