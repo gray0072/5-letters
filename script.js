@@ -67,7 +67,8 @@
       console.log('resultStr', resultStr)     
 
       let endTicks = new Date().getTime()
-      $result.val(((endTicks - startTicks) / 1000) + 'ms\n' + resultStr)
+	  let periodMs = (endTicks - startTicks) / 1000
+      $result.val(`Found ${resultWords.length} words for ${periodMs}ms\n${resultStr}`)
     }
     catch (e) {
       $result.val(`Error: ${e}`)
@@ -77,10 +78,10 @@
   let timer = 0
   let scheduleUpdate = () => {
     clearTimeout(timer)
-    timer = setTimeout(1000, updateResult)
+    timer = setTimeout(updateResult, 100)
   }
 
-  $inputs.map($input => $input.on('change', scheduleUpdate))
+  $inputs.map($input => $input.on('input', scheduleUpdate))
   updateResult()
 
 })(jQuery);
