@@ -64,5 +64,6 @@
   }
 
   $inputs.map($input => $input.on('change', updateResult))
+  updateResult()
 
 })(jQuery);
