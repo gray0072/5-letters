@@ -6,6 +6,8 @@
 
   let updateResult = () => {
     console.log('updateResult')
+    $result.val(`Starting...`)
+    let startTicks = new Date().getTime()
     try {
       let filterStrs = $inputs.map($input => $input.val()).filter(x => !!x)
       console.log('filterStrs', filterStrs)
@@ -64,14 +66,21 @@
       let resultStr = resultWords.slice(0, 20).join('\n')
       console.log('resultStr', resultStr)     
 
-      $result.val(resultStr)
+      let endTicks = new Date().getTime()
+      $result.val(((endTicks - startTicks) / 1000) + 'ms\n' + resultStr)
     }
     catch (e) {
       $result.val(`Error: ${e}`)
     }
   }
 
-  $inputs.map($input => $input.on('change', updateResult))
+  let timer = 0
+  let scheduleUpdate = () => {
+    clearTimeout(timer)
+    timer = setTimeout(1000, updateResult)
+  }
+
+  $inputs.map($input => $input.on('change', scheduleUpdate))
   updateResult()
 
 })(jQuery);
