@@ -10,7 +10,7 @@
       let filterStrs = $inputs.map($input => $input.val()).filter(x => !!x)
       console.log('filterStrs', filterStrs)
   
-      let applyFilterStr = (filterStr, words) => {
+      let applyFilterStr = (words, filterStr) => {
         console.log('applyFilterStr', filterStr)
         // ар!буз? 
         // !word.includes('а')
@@ -53,6 +53,7 @@
 
         return result
       }
+
       let resultWords = filterStrs.reduce(applyFilterStr, words5Array)
       console.log('resultWords', resultWords)     
       let resultStr = resultWords.slice(0, 20).join('\n')
