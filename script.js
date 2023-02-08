@@ -7,7 +7,7 @@
   let updateResult = () => {
     console.log('updateResult')
     try {
-      let filterStrs = $inputs.map($input => $input.value()).filter(x => !!x)
+      let filterStrs = $inputs.map($input => $input.val()).filter(x => !!x)
       console.log('filterStrs', filterStrs)
   
       let applyFilterStr = (filterStr, words) => {
@@ -56,10 +56,10 @@
       let resultWords = filterStrs.reduce(applyFilterStr, words5Array)
       let resultStr = resultWords.slice(0, 20).join('\n')
 
-      $result.value(resultStr)
+      $result.val(resultStr)
     }
     catch (e) {
-      $result.value(`Error: ${e}`)
+      $result.val(`Error: ${e}`)
     }
   }
 
