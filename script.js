@@ -12,7 +12,14 @@
   
       let applyFilterStr = (filterStr, words) => {
         console.log('applyFilterStr', filterStr)
-        // ба!нан? 
+        // ар!буз? 
+        // !word.includes('а')
+        // word[1] = 'р'
+        // !word.includes('б')
+        // !word.includes('у')
+        // word[4] != 'з'
+        // word.includes('з')
+        
         let rules = []
 
         let index = 0
@@ -22,13 +29,16 @@
           let nextLetter = filter[1]
           if(nextLetter === '!')          {
             rules.push(word => word[index] === letter)
+            filter = filter.substring(2)
           }
           else if(nextLetter === '?')          {
             rules.push(word => word[index] !== letter)
             rules.push(word => word.includes(letter))
+            filter = filter.substring(2)
           }
           else {
             rules.push(word => !word.includes(letter))
+            filter = filter.substring(1)
           }
 
           index++
