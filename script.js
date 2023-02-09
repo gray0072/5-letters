@@ -63,7 +63,7 @@
 
       let resultWords = filterStrs.reduce(applyFilterStr, words5Array)
       console.log('resultWords', resultWords)     
-      let resultStr = resultWords.slice(0, 20).join('\n')
+      let resultStr = resultWords.join('\n')
       console.log('resultStr', resultStr)     
 
       let endTicks = new Date().getTime()
