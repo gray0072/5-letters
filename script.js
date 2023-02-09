@@ -67,7 +67,7 @@
       console.log('resultStr', resultStr)     
 
       let endTicks = new Date().getTime()
-	  let periodMs = endTicks - startTicks
+      let periodMs = endTicks - startTicks
       $result.val(`Found ${resultWords.length} words for ${periodMs}ms\n${resultStr}`)
     }
     catch (e) {
